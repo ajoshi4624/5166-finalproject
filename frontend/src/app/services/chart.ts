@@ -11,7 +11,7 @@ export interface ChartData {
   providedIn: 'root'
 })
 export class ChartService {
-  private baseUrl = 'http://localhost:3000/api/charts';
+   private baseUrl = 'http://138.197.38.7:3000/api/charts';
 
   constructor(private http: HttpClient) {}
 
