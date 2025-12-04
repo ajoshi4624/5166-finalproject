@@ -1,0 +1,15 @@
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<nav *ngIf="showNav()">
+  <span class="app-title">A02</span>
+
+  <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+  <a routerLink="/summary" routerLinkActive="active">Summary</a>
+  <a routerLink="/reports" routerLinkActive="active">Reports</a>
+
+  <button type="button" (click)="logout()">Logout</button>
+</nav>
+
+<main id="main">
+  <router-outlet></router-outlet>
+</main>

@@ -1,0 +1,54 @@
+<section class="page page-dashboard" aria-labelledby="dashTitle">
+  <header class="page-header">
+    <h1 id="dashTitle">UNC Charlotte AI Research: Protecting Vision Earlier</h1>
+    <p class="page-subtitle">Summary of recent campus news for A02</p>
+  </header>
+
+  <article class="card">
+    <h2>Project overview</h2>
+    <p>
+      Researchers in UNC Charlotte’s Department of Electrical and Computer Engineering are training
+      advanced artificial intelligence models to spot eye disease years before symptoms appear. Led
+      by Dr. Minhaj Alam, the team is using deep learning to analyze high-resolution retina scans
+      and detect microscopic changes associated with conditions such as diabetic retinopathy and
+      macular degeneration. These diseases often progress silently, meaning patients typically do
+      not seek treatment until their vision has already begun to deteriorate. Traditional screenings
+      rely on busy specialists manually reviewing thousands of images, a process that can be slow,
+      inconsistent, and difficult to scale. The new AI-driven system instead learns from large
+      datasets of expertly labeled scans and identifies subtle patterns of damage long before a
+      patient notices any change in sight. By highlighting potential risk early, the technology
+      could make screenings more accessible, reduce specialist workload, and enable earlier
+      intervention that preserves long-term vision. In both classroom projects and laboratory
+      research, UNC Charlotte students directly contribute to developing, training, and evaluating
+      these models, giving them hands-on experience with tools used in real clinical and
+      public-health environments. The work has already drawn media attention in Charlotte and
+      demonstrates how the university pairs cutting-edge research with meaningful student
+      involvement to address urgent healthcare challenges.
+    </p>
+
+    <p>
+      Source:
+      <a
+        href="https://ece.charlotte.edu/2025/11/18/unc-charlottes-ai-innovation-aims-to-prevent-vision-impairment/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        UNC Charlotte’s AI innovation aims to prevent vision impairment
+      </a>
+    </p>
+  </article>
+
+  <article class="card">
+    <h2>How A02 is built</h2>
+    <p>
+      A02 is a single-page web application built with an Angular frontend and a Node.js / Express
+      backend connected to MongoDB Atlas. The frontend runs on port 80 behind NGINX, which also
+      reverse-proxies API requests to the backend running on port 3000. Authentication uses JSON Web
+      Tokens (JWT): the backend issues a signed token when the user logs in with the assignment
+      credentials, and Angular attaches the token to authorized HTTP requests. Chart data for the
+      Summary and Reports pages is delivered as JSON from two backend endpoints tied to the same
+      article, and the SPA uses the Angular router with guards to keep all protected pages behind
+      login.
+    </p>
+  </article>
+</section>

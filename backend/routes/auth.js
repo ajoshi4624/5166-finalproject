@@ -1,21 +1,26 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
+
 const router = express.Router();
 
-const VALID_USERNAME = 'Apoorva'; 
-const VALID_PASSWORD = 'Apoorva'; 
+
+const JWT_SECRET = process.env.JWT_SECRET;
+
+if (!JWT_SECRET) {
+  console.error("❌ ERROR: JWT_SECRET is not defined. Add it to backend/.env");
+  process.exit(1);
+}
 
 router.post('/login', (req, res) => {
-  const { username, password } = req.body;
+  const { username, password } = req.body || {};
 
-  if (username !== VALID_USERNAME || password !== VALID_PASSWORD) {
-    return res.status(401).json({ message: 'Invalid credentials' });
+  
+  if (username === 'Apoorva' && password === 'Apoorva') {
+    const token = jwt.sign({ username }, JWT_SECRET, { expiresIn: '1h' });
+    return res.json({ token });
   }
 
-  const payload = { username };
-  const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' });
-
-  res.json({ token });
+  return res.status(401).json({ message: 'Invalid credentials' });
 });
 
 module.exports = router;

@@ -1,0 +1,48 @@
+<section class="page page-login" aria-labelledby="loginTitle">
+  <header class="page-header">
+    <h1 id="loginTitle">Login to A02</h1>
+    <p class="page-subtitle">
+      Use your assignment credentials to access the dashboard and reports.
+    </p>
+  </header>
+
+  <form
+    class="card form-card"
+    (ngSubmit)="onSubmit()"
+    #loginForm="ngForm"
+    aria-label="Login form"
+  >
+    <div class="form-field">
+      <label for="username">Username</label>
+      <input
+        id="username"
+        name="username"
+        [(ngModel)]="username"
+        required
+        autocomplete="username"
+      />
+    </div>
+
+    <div class="form-field">
+      <label for="password">Password</label>
+      <input
+        id="password"
+        name="password"
+        type="password"
+        [(ngModel)]="password"
+        required
+        autocomplete="current-password"
+      />
+    </div>
+
+    <button type="submit" [disabled]="loginForm.invalid">
+      Log in
+    </button>
+
+    <p *ngIf="error" class="error-message" role="alert">
+      {{ error }}
+    </p>
+  </form>
+</section>
+
+

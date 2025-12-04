@@ -1,28 +1,24 @@
+
 const express = require('express');
 const router = express.Router();
-const auth = require('../middleware/auth');
-const Chart = require('../models/Chart');
 
 
-router.get('/chart1', auth, async (req, res) => {
-  try {
-    const chart = await Chart.findOne({ name: 'chart1' });
-    if (!chart) return res.status(404).json({ message: 'Chart1 not found' });
-    res.json(chart);
-  } catch (err) {
-    res.status(500).json({ message: 'Server error' });
-  }
+router.get('/summary', (req, res) => {
+  const data = {
+    labels: ['Low', 'Medium', 'High'],
+    values: [70, 20, 10]
+  };
+  res.json(data);
 });
 
 
-router.get('/chart2', auth, async (req, res) => {
-  try {
-    const chart = await Chart.findOne({ name: 'chart2' });
-    if (!chart) return res.status(404).json({ message: 'Chart2 not found' });
-    res.json(chart);
-  } catch (err) {
-    res.status(500).json({ message: 'Server error' });
-  }
+router.get('/reports', (req, res) => {
+  const data = {
+    labels: ['Year 1', 'Year 2', 'Year 3', 'Year 4', 'Year 5'],
+    values: [50, 80, 110, 130, 150]
+  };
+  res.json(data);
 });
 
 module.exports = router;
+
